@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hover hightlight</title>
+    <style>
+        body{
+            max-width: 960px;
+            margin: 10px auto;
+        }
+        .squer {
+            color: red
+        }
+
+        .squer.active {
+            border: 1px solid #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body> 
+    <h1>Hover hightlight comp</h1>
+    <p>hover on the title to show effect</p>
+    <hr>
+    <div id="app">
+        <div v-for="(item, index) in items"
+             :key="index"
+            class="squer" 
+            :class="{active: item.isActive}" 
+            @mouseover="showCont(item)">
+            <h2>{{ item.title }}</h2>
+            <p>{{ item.cont }}</p>
+            <hr>
+        </div>
+        
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                items: [
+                    { title: 'Product 1', cont: 'Description text of p1', isActive: false },
+                    { title: 'Product 2', cont: 'Description text of p2', isActive: false },
+                    { title: 'Product 3', cont: 'Description text of p3', isActive: false },
+                ]
+            },
+            methods: {
+                showCont(hoveredTitle) {
+                    this.items.forEach(item=>{
+                        item.isActive = (item.title == hoveredTitle.title)
+                    })
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
