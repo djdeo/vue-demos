@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Get firebase data</title>
+    <style>
+        body {
+            margin: 10px auto;
+            max-width: 960px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <form @submit.prevent="addEmail">
+            <label for="addEmail">Submit your email</label>
+            <input type="email" v-model="content" placeholder="add email" id="addEmail" :disabled="disabled">
+            <button>Submit</button>
+        </form>
+        <p> {{ feedback }} </p>
+
+        <h2>check the list download below:</h2>
+        <ul>
+            <li v-for="(detail, i) in details" :key="i"> {{ detail }} </li>
+        </ul>
+        <button @click="getLicense">Get License</button>
+        <p>{{ license }}</p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-functions.js"></script>
+
+    <!-- Leave out Storage -->
+    <!-- <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-storage.js"></script> -->
+
+    <script>
+        var config = {
+            apiKey: "AIzaSyCqAI2DgzHeqh4_aCXQ9OqQVFKibCi-tPM",
+            authDomain: "emailsubmit-9c09b.firebaseapp.com",
+            databaseURL: "https://emailsubmit-9c09b.firebaseio.com",
+            projectId: "emailsubmit-9c09b",
+            storageBucket: "emailsubmit-9c09b.appspot.com",
+            messagingSenderId: "37864097964"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+
+
+
+
+</body>
+
+</html>
