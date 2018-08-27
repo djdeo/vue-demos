@@ -1,0 +1,39 @@
+body {
+    max-width: 960px;
+    margin:10px auto;
+}
+
+#app{
+    width:80%;
+    margin:auto;
+  }
+  ul{
+    padding: 4px 4px;
+    border: 1px solid #cd2122;
+    border-radius: 8px;
+    
+  }
+  li{
+    list-style-type:none;
+    padding:4px 4px;
+  }
+  li:hover{
+    background-color:#eee;
+  }
+  li:nth-child(2n), li:nth-child(2n):hover{
+    background-color:rgb(241, 241, 241);
+    border-radius: 8px;
+  }
+  
+  button{
+    width:4rem;
+    height:2rem;
+    background-color:#cd2122;
+    color:white;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  button:disabled{
+    cursor:not-allowed;
+    background-color: rgb(121, 120, 120);
+  }
