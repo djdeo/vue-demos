@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Paged Data</title>
-    <link rel="stylesheet" href="main.css">
-</head>
-<body>
-    <h1>Paged Data</h1> <span>support IE11</span>
-    <span><a href="index.html">Index</a></span>
-    <div id="paged">
-        <ul>
-            <li v-for="item, i in pagedData" :key="i">
-                <h4> {{ item.title}} </h4>
-                <p> {{ item.body }} </p>
-            </li>
-        </ul>
-        <button @click="current--" :disabled="current === 0">Prev</button>
-        <span>{{ current + 1 }} / {{ pageCount + 1 }}</span>
-        <button @click="current++" :disabled="current == pageCount">Next</button>
-    </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="paged.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Paged Data</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <h1>Paged Data</h1> <span>support IE11</span>
+  <span><a href="index.html">Index</a></span>
+  <div id="paged">
+    <ul>
+      <li v-for="item, i in pagedData" :key="i">
+        <h4> <a :href="item.link">{{ item.title}}</a>  <em>Author: {{ item.author }} </em></h4>
+        <p> {{ item.body }} </p>
+      </li>
+    </ul>
+    <button @click="current--" :disabled="current === 0">Prev</button>
+    <span>{{ current + 1 }} / {{ pageCount + 1 }}</span>
+    <button @click="current++" :disabled="current == pageCount">Next</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="paged.js"></script>
 </body>
+
 </html>
