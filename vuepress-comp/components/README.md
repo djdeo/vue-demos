@@ -33,3 +33,5 @@ props:
 ## `<BackTop />`
 
 add this to the bottom of an `.md` file, no pros, button color used the default settings
+
+if you got `window (document) is not defined` problem use `mounted()` hook instead of the `created()` one
