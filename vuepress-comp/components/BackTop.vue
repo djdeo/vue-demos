@@ -11,12 +11,21 @@ export default {
       scrolled: false
     };
   },
-  created() {
+  
+  
+  // use mounted() for vuepress comp
+  mounted() {
+    document.addEventListener("scroll", this.showLink);
+  },
+  
+  // use created() and destroyed() for vue comp
+  
+  /* created() {
     window.addEventListener("scroll", this.showLink);
   },
   destroyed() {
     window.removeEventListener("scroll", this.showLink);
-  },
+  }, */
   methods: {
     showLink() {
       this.scrolled = window.scrollY > 0;
