@@ -1,8 +1,9 @@
-# 3 Vuepress components
+# 4 Vuepress components
 
 - `<imgHover>`
 - `<singleImg>`
 - `<imgSet>`
+- `<BackTop />`
 
 ## `<imgHover>`
 
@@ -27,3 +28,8 @@ props:
 
 - link1: `string`, img path for the first img
 - link2: `string`, img path for the 2nd img
+
+
+## `<BackTop />`
+
+add this to the bottom of an `.md` file, no pros, button color used the default settings
